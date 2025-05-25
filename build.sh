@@ -90,15 +90,15 @@ r9s)
     BOARD=SRPUG16A010KU
 ;;
 o1s)
-    KERNEL_DEFCONFIG=chiclet_o1s_defconfig
+    KERNEL_DEFCONFIG=void_o1s_defconfig
     BOARD=SRPTH19C011KU
 ;;
 t2s)
-    KERNEL_DEFCONFIG=chiclet_t2s_defconfig
+    KERNEL_DEFCONFIG=void_t2s_defconfig
     BOARD=SRPTG24B014KU
 ;;
 p3s)
-    KERNEL_DEFCONFIG=chiclet_p3s_defconfig
+    KERNEL_DEFCONFIG=void_p3s_defconfig
     BOARD=SRPTH19D013KU
 ;;
 *)
