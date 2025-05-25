@@ -1988,7 +1988,7 @@ endif
 
 #EXTRA_LDFLAGS += --strip-debug
 
-EXTRA_CFLAGS += $(DHDCFLAGS) -DDHD_DEBUG
+EXTRA_CFLAGS += $(DHDCFLAGS) -DDHD_DEBUG -Wno-vla-extension
 EXTRA_CFLAGS += -DDHD_COMPILED=\"$(src)\"
 ifeq ($(objtree),.)
 ifeq ($(srctree),.)
