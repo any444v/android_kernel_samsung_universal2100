@@ -1,10 +1,15 @@
 ui_print(" ");
-ui_print("Installing ExtremeKernel UNOFFICIAL...");
+ui_print("Installing VoidKernel @ 3kz");
 ui_print(" ");
 
+ui_print("Detected device: " + getprop("ro.product.device"));
+#DEVICE_CHECK
+
+ui_print("Installing boot.img");
 package_extract_file("files/boot.img", "/dev/block/by-name/boot");
+ui_print("Installing vendor_boot.img");
 package_extract_file("files/vendor_boot.img", "/dev/block/by-name/vendor_boot");
+ui_print("Installing dtbo.img");
 package_extract_file("files/dtbo.img", "/dev/block/by-name/dtbo");
 
 ui_print("Installation done!");
-ui_print(" ");
