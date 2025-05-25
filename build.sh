@@ -79,7 +79,7 @@ LLVM=1 \
 LLVM_IAS=1 \
 ARCH=arm64 \
 READELF=$CLANG_DIR/bin/llvm-readelf \
-CROSS_COMPILE=$GCC_DIR/bin/aarch64-linux-gnu- \
+CROSS_COMPILE=$GCC_DIR/bin/aarch64-none-linux-gnu- \
 O=out
 "
 
