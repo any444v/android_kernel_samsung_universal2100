@@ -68,11 +68,10 @@ done
 echo "Preparing the build environment..."
 
 pushd $(dirname "$0") > /dev/null
-CORES=`cat /proc/cpuinfo | grep -c processor`
 
 # Define toolchain variables
 CLANG_DIR=$PWD/toolchain/clang-r416183b
-GCC_DIR=$PWD/toolchain/gcc_4.9
+GCC_DIR=$PWD/toolchain/arm-gnu-toolchain-14.2.rel1-x86_64-aarch64-none-linux-gnu
 PATH=$CLANG_DIR/bin:$CLANG_DIR/lib:$GCC_DIR/bin:$GCC_DIR/lib:$PATH
 
 MAKE_ARGS="
@@ -131,14 +130,18 @@ build_kernel() {
     fi
 
     echo "-----------------------------------------------"
+    echo "Cleaning source tree..."
+    make ${MAKE_ARGS} -j$(nproc) clean || abort
+    make ${MAKE_ARGS} -j$(nproc) mrproper || abort
+    echo "-----------------------------------------------"
     echo "Building kernel using "$KERNEL_DEFCONFIG""
     echo "Generating configuration file..."
     echo "-----------------------------------------------"
-    make ${MAKE_ARGS} -j$CORES $KERNEL_DEFCONFIG $KSU || abort
+    make ${MAKE_ARGS} -j$(nproc) $KERNEL_DEFCONFIG $KSU || abort
 
     echo "Building kernel..."
     echo "-----------------------------------------------"
-    make ${MAKE_ARGS} -j$CORES || abort
+    make ${MAKE_ARGS} -j$(nproc) || abort
 }
 
 build_boot() {
