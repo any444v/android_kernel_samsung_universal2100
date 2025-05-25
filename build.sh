@@ -348,6 +348,8 @@ build_zip() {
     cp build/update-binary build/out/$MODEL/zip/META-INF/com/google/android/update-binary
     cp build/updater-script build/out/$MODEL/zip/META-INF/com/google/android/updater-script
 
+    sed -i "s|#DEVICE_CHECK|getprop(\"ro.product.device\") == \"$MODEL\" || abort(\"Error: this kernel only for $MODEL!\");|" "$UPDATER_SCRIPT"
+
     version=$(grep -o 'CONFIG_LOCALVERSION="[^"]*"' arch/arm64/configs/$KERNEL_DEFCONFIG | cut -d '"' -f 2)
     version=${version:1}
     pushd build/out/$MODEL/zip > /dev/null
