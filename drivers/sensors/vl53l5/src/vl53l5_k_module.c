@@ -60,7 +60,7 @@
 *
 *******************************************************************************/
 
-#include "../../sensorhub/brcm/ssp.h"
+/*#include "../../sensorhub/brcm/ssp.h"*/
 
 #include <linux/kernel.h>
 #include <linux/module.h>
