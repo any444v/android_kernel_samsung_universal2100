@@ -12,5 +12,5 @@
 	url = https://github.com/any444v/arm-gnu-toolchain-14.2.rel1-x86_64-aarch64-none-linux-gnu.git
 [submodule "KernelSU-Next"]
 	path = KernelSU-Next
-	url = https://github.com/any444v/KernelSU-Next.git
+	url = https://github.com/KernelSU-Next/KernelSU-Next.git
 	branch = next-susfs
