@@ -368,9 +368,9 @@ build_zip() {
     pushd build/out/$MODEL/zip > /dev/null
 
     if [[ "$KSU_OPTION" == "y" ]]; then
-        NAME=VoidKernel-"$MODEL"-KSU-1.1.zip
+        NAME=VoidKernel-"$MODEL"-KSU-1.2.zip
     else
-        NAME=VoidKernel-"$MODEL"-Vanilla-1.1.zip
+        NAME=VoidKernel-"$MODEL"-Vanilla-1.2.zip
     fi
     zip -r -qq ../"$NAME" .
     popd > /dev/null
