@@ -175,7 +175,7 @@ build_boot() {
 
 build_dtb() {
     echo "-----------------------------------------------"
-    # echo "Building DTB image..."
+    echo "Building DTB image..."
     ./toolchain/mkdtimg cfg_create build/out/$MODEL/dtb.img build/dtconfigs/exynos2100.cfg -d out/arch/arm64/boot/dts/exynos || abort 
 
     echo "-----------------------------------------------"
