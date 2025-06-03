@@ -350,15 +350,12 @@ build_zip() {
 
     sed -i "s#\#DEVICE_CHECK#getprop(\"ro.product.device\") == \"$MODEL\" || abort(\"Error: this kernel only for $MODEL!\");#" build/out/$MODEL/zip/META-INF/com/google/android/updater-script
 
-    version=$(grep -o 'CONFIG_LOCALVERSION="[^"]*"' arch/arm64/configs/$KERNEL_DEFCONFIG | cut -d '"' -f 2)
-    version=${version:1}
     pushd build/out/$MODEL/zip > /dev/null
-    DATE=`date +"%d-%m-%Y_%H-%M-%S"`
 
     if [[ "$KSU_OPTION" == "y" ]]; then
-        NAME="$version"_"$MODEL"_UNOFFICIAL_KSU_"$DATE".zip
+        NAME=VoidKernel-"$MODEL"-KSU-1.1.zip
     else
-        NAME="$version"_"$MODEL"_UNOFFICIAL_"$DATE".zip
+        NAME=VoidKernel-"$MODEL"-Vanilla-1.1.zip
     fi
     zip -r -qq ../"$NAME" .
     popd > /dev/null
