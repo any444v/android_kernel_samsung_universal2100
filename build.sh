@@ -70,21 +70,21 @@ echo "Preparing the build environment..."
 pushd $(dirname "$0") > /dev/null
 
 # Define toolchain variables
-CLANG_DIR=$PWD/toolchain/clang-r522817
+CLANG_DIR=$PWD/toolchain/clang-r547379
 GCC_DIR=$PWD/toolchain/arm-gnu-toolchain-14.2.rel1-x86_64-aarch64-none-linux-gnu
 PATH=$CLANG_DIR/bin:$CLANG_DIR/lib:$GCC_DIR/bin:$GCC_DIR/lib:$PATH
 
 # Check if toolchain exists
-if [ ! -f "$CLANG_DIR/bin/clang-18" ]; then
+if [ ! -f "$CLANG_DIR/bin/clang-20" ]; then
     echo "-----------------------------------------------"
     echo "Toolchain not found! Downloading..."
     echo "-----------------------------------------------"
     rm -rf $CLANG_DIR
     mkdir -p $CLANG_DIR
     pushd $CLANG_DIR > /dev/null
-    curl -LJOk https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/main/clang-r522817.tar.gz
-    tar xf main-clang-r522817.tar.gz
-    rm main-clang-r522817.tar.gz
+    curl -LJOk https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/main/clang-r547379.tar.gz
+    tar xf main-clang-r547379.tar.gz
+    rm main-clang-r547379.tar.gz
     echo "Cleaning up..."
     popd > /dev/null
 fi
@@ -368,9 +368,9 @@ build_zip() {
     pushd build/out/$MODEL/zip > /dev/null
 
     if [[ "$KSU_OPTION" == "y" ]]; then
-        NAME=VoidKernel-"$MODEL"-KSU-1.2.zip
+        NAME=VoidKernel-"$MODEL"-KSU-1.3.zip
     else
-        NAME=VoidKernel-"$MODEL"-Vanilla-1.2.zip
+        NAME=VoidKernel-"$MODEL"-Vanilla-1.3.zip
     fi
     zip -r -qq ../"$NAME" .
     popd > /dev/null
