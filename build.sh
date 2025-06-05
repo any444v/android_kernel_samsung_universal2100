@@ -90,7 +90,6 @@ fi
 
 MAKE_ARGS="
 ARCH=arm64 \
-CROSS_COMPILE=aarch64-linux-gnu- \
 LLVM=1 \
 LLVM_IAS=1 \
 O=out
