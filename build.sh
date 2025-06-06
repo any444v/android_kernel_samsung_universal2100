@@ -153,7 +153,7 @@ build_kernel() {
 
     echo "Building kernel..."
     echo "-----------------------------------------------"
-    make ${MAKE_ARGS} -j$(nproc) || abort
+    make "CC=ccache clang" ${MAKE_ARGS} -j$(nproc) || abort
 }
 
 build_boot() {
